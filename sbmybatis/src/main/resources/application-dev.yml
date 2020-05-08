@@ -1,0 +1,21 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: sbmybatis
+  datasource:
+    url: jdbc:mysql://47.100.45.89:3306/user?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.mws.pojo
+
+logging:
+  level:
+    com:
+      mws:
+        dao: debug

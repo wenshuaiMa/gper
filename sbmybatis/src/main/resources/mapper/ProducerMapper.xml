@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mws.dao.ProducerMapper">
+
+    <resultMap id="BaseResultMap" type="com.mws.pojo.Producer">
+        <result column="pname" property="pname" />
+        <result column="prods" property="goods" typeHandler="com.mws.handler.MyTypeHandler"/>
+    </resultMap>
+
+    <select id="getProducers" resultMap="BaseResultMap">
+        select * from producer
+    </select>
+
+    <insert id="saveProducer" parameterType="com.mws.pojo.Producer">
+
+        insert into producer(pname, prods)
+        value (#{pname},
+        #{goods,typeHandler=com.mws.handler.MyTypeHandler} )
+    </insert>
+
+</mapper>
